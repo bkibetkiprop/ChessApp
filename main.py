@@ -55,12 +55,12 @@ class ChessGrid(GridLayout):
 
 def get_piece_unicode(piece):
     piece_symbols = {
-        chess.PAWN: '♙♟',
-        chess.ROOK: '♖♜',
-        chess.KNIGHT: '♘♞',
-        chess.BISHOP: '♗♝',
-        chess.QUEEN: '♕♛',
-        chess.KING: '♔♚'
+        chess.PAWN: 'Pp',
+        chess.ROOK: 'Rr',
+        chess.KNIGHT: 'Nn',
+        chess.BISHOP: 'Bb',
+        chess.QUEEN: 'Qq',
+        chess.KING: 'Kk'
     }
 
     return piece_symbols.get(piece.piece_type, '')
