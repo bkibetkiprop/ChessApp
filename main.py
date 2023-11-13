@@ -32,7 +32,7 @@ class ChessGrid(GridLayout):
         legal_moves = [move.uci() for move in self.board.legal_moves]
 
         if square in legal_moves:
-            self.board.push(main.Move.from_uci(square))
+            self.board.push(chess.Move.from_uci(square))
 
         for child in self.children:
             if isinstance(child, ChessButton):
