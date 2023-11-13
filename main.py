@@ -34,11 +34,36 @@ class ChessGrid(GridLayout):
         if square in legal_moves:
             self.board.push(chess.Move.from_uci(square))
 
+        self.update_board()
+
+        # Check for checkmate
+        if self.board.is_checkmate():
+            print("Checkmate! Game over.")
+            # Add your end-game logic or UI update here
+
+    def update_board(self):
         for child in self.children:
             if isinstance(child, ChessButton):
-                piece = self.board.piece_at(
-                    chess.square(child.col, 7 - child.row))
-                child.text = str(piece) if piece else ''
+                square = chess.square(child.col, 7 - child.row)
+                piece = self.board.piece_at(square)
+
+                if piece:
+                    child.text = get_piece_unicode(piece)
+                else:
+                    child.text = ''
+
+
+def get_piece_unicode(piece):
+    piece_symbols = {
+        chess.PAWN: '♙♟',
+        chess.ROOK: '♖♜',
+        chess.KNIGHT: '♘♞',
+        chess.BISHOP: '♗♝',
+        chess.QUEEN: '♕♛',
+        chess.KING: '♔♚'
+    }
+
+    return piece_symbols.get(piece.piece_type, '')
 
 
 class ChessApp(App):
