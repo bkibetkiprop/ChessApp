@@ -3,6 +3,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 import chess
 import chess.engine
+from kivy.core.text import LabelBase
 
 
 class ChessButton(Button):
