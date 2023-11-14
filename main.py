@@ -5,6 +5,8 @@ import chess
 import chess.engine
 from kivy.core.text import LabelBase
 
+# Will sort the chess pieces and moves later
+
 
 class ChessButton(Button):
     def __init__(self, row, col, **kwargs):
